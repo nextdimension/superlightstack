@@ -14,7 +14,7 @@ It is a lightweight library which helps to create a view stack to replace fragme
 
 ### 1. Create a XML layout and specifiy the view class you wish to use.
 
-```xml
+```XML
 <com.sls.superlight.slates.viewone.ViewOne xmlns:android="http://schemas.android.com/apk/res/android"
                                           android:orientation="vertical"
                                           android:layout_width="match_parent"
@@ -51,6 +51,27 @@ It is a lightweight library which helps to create a view stack to replace fragme
 ```java
  ((MainActivity)context).transitioner.goTo(layoutResID, id, getData(), AnimationHandler.TransitionTypes.CROSSFADE, this);
 ```
+
+### 7. Make sure create layout file with view ids
+ 
+```XML
+ <resources>
+    <item name="ViewOne" type="id"/>
+    <item name="ViewTwo" type="id"/>
+    <item name="ViewThree" type="id"/>
+</resources>
+```
+
+### 8. Make sure to set the view id in the View
+ 
+```java
+ @Override
+    protected void onFinishInflate() {
+        this.setId(R.id.ViewOne);
+        super.onFinishInflate();
+    }
+```
+
 
 ## Note
 
