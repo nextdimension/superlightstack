@@ -41,7 +41,7 @@ It is a lightweight library which helps to create a view stack to replace fragme
 
 ## Licence
 
-    Copyright 2016 Chris M.
+    Copyright 2017 Chris M.
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
