@@ -10,11 +10,14 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import static android.media.CamcorderProfile.get;
+
 public class Transitioner {
 
     private Context context;
     private ViewGroup root;
-    private ArrayDeque<Slate> backStack = new ArrayDeque<>();
+    //private ArrayDeque<Slate> backStack = new ArrayDeque<>();
+    private ArrayList<Slate> backStack = new ArrayList<>();
     private int baseLayoutID;
     private int baseId;
 
@@ -41,32 +44,32 @@ public class Transitioner {
         if (type == AnimationHandler.TransitionTypes.NONE) {
             backStack.add(slate);
             root.removeAllViews();
-            BaseView nView = (BaseView) LayoutInflater.from(this.context).inflate(backStack.getLast().getLayoutID(), root, false);
-            nView.setBundle(backStack.getLast().getBundle());
+            BaseView nView = (BaseView) LayoutInflater.from(this.context).inflate(backStack.get(backStack.size() - 1).getLayoutID(), root, false);
+            nView.setBundle(backStack.get(backStack.size() - 1).getBundle());
             root.addView(nView);
         } else {
             AnimationHandler animationHandler = new AnimationHandler();
             BaseView from = (BaseView) view;
             backStack.add(slate);
-            BaseView to = (BaseView) LayoutInflater.from(this.context).inflate(backStack.getLast().getLayoutID(), root, false);
-            to.setBundle(backStack.getLast().getBundle());
+            BaseView to = (BaseView) LayoutInflater.from(this.context).inflate(backStack.get(backStack.size() - 1).getLayoutID(), root, false);
+            to.setBundle(backStack.get(backStack.size() - 1).getBundle());
             animationHandler.animate(type, from, to, root, 500);
         }
     }
     private void transitionBackward(AnimationHandler.TransitionTypes type) {
 
         if (type == AnimationHandler.TransitionTypes.NONE) {
-            backStack.removeLast();
+            backStack.remove(backStack.size() - 1);
             root.removeAllViews();
-            BaseView nView = (BaseView) LayoutInflater.from(this.context).inflate(backStack.getLast().getLayoutID(), root, false);
-            nView.setBundle(backStack.getLast().getBundle());
+            BaseView nView = (BaseView) LayoutInflater.from(this.context).inflate(backStack.get(backStack.size() - 1).getLayoutID(), root, false);
+            nView.setBundle(backStack.get(backStack.size() - 1).getBundle());
             root.addView(nView);
         } else {
             AnimationHandler animationHandler = new AnimationHandler();
-            BaseView from = (BaseView) root.findViewById(backStack.getLast().getId());
-            backStack.removeLast();
-            BaseView to = (BaseView) LayoutInflater.from(this.context).inflate(backStack.getLast().getLayoutID(), root, false);
-            to.setBundle(backStack.getLast().getBundle());
+            BaseView from = (BaseView) root.findViewById(backStack.get(backStack.size() - 1).getId());
+            backStack.remove(backStack.size() - 1);
+            BaseView to = (BaseView) LayoutInflater.from(this.context).inflate(backStack.get(backStack.size() - 1).getLayoutID(), root, false);
+            to.setBundle(backStack.get(backStack.size() - 1).getBundle());
             animationHandler.animate(type, from, to, root, 500);
         }
     }
@@ -74,14 +77,14 @@ public class Transitioner {
 
         if (type == AnimationHandler.TransitionTypes.NONE) {
             root.removeAllViews();
-            BaseView nView = (BaseView) LayoutInflater.from(this.context).inflate(backStack.getLast().getLayoutID(), root, false);
-            nView.setBundle(backStack.getLast().getBundle());
+            BaseView nView = (BaseView) LayoutInflater.from(this.context).inflate(backStack.get(backStack.size() - 1).getLayoutID(), root, false);
+            nView.setBundle(backStack.get(backStack.size() - 1).getBundle());
             root.addView(nView);
         } else {
             AnimationHandler animationHandler = new AnimationHandler();
-            BaseView from = (BaseView) root.findViewById(backStack.getLast().getId());
-            BaseView to = (BaseView) LayoutInflater.from(this.context).inflate(backStack.getLast().getLayoutID(), root, false);
-            to.setBundle(backStack.getLast().getBundle());
+            BaseView from = (BaseView) root.findViewById(backStack.get(backStack.size() - 1).getId());
+            BaseView to = (BaseView) LayoutInflater.from(this.context).inflate(backStack.get(backStack.size() - 1).getLayoutID(), root, false);
+            to.setBundle(backStack.get(backStack.size() - 1).getBundle());
             animationHandler.animate(type, from, to, root, 500);
         }
     }
