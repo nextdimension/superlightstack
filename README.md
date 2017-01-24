@@ -15,6 +15,11 @@ It is a lightweight library which helps to create a view stack to replace fragme
                                           android:orientation="vertical"
                                           android:layout_width="match_parent"
                                           android:layout_height="match_parent">
+ 
+ //Add your required layout type here 
+ 
+ 
+                                          
 </com.sls.superlight.slates.viewone.ViewOne>
 
 ```
