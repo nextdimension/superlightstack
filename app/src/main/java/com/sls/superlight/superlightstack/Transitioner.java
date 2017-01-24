@@ -6,12 +6,8 @@ import android.support.annotation.LayoutRes;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Iterator;
-
-import static android.media.CamcorderProfile.get;
-
 public class Transitioner {
 
     private Context context;
