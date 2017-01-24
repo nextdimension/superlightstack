@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sls.superlight.slates.viewtwo.ViewTwo xmlns:android="http://schemas.android.com/apk/res/android"
+                                           android:orientation="vertical"
+                                           android:layout_width="match_parent"
+                                           android:layout_height="match_parent"
+                                           android:id="@+id/root">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This is View Two!"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="65dp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/arg_text"
+        android:textAlignment="center"
+        android:hint="Data to persist"
+        android:textSize="12sp"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="42dp"/>
+
+    <Button
+        android:text="goto view three"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/go_to_button"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/textView"
+        android:layout_toEndOf="@+id/textView"/>
+
+    <Button
+        android:text="Show message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/show_message_button"
+        android:layout_alignBaseline="@+id/go_to_button"
+        android:layout_alignBottom="@+id/go_to_button"
+        android:layout_toLeftOf="@+id/textView"
+        android:layout_toStartOf="@+id/textView"/>
+
+</com.sls.superlight.slates.viewtwo.ViewTwo>

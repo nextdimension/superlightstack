@@ -1,0 +1,21 @@
+# Android Studio
+*.iws
+*.iml
+/.idea/*
+/.gradle/*
+.externalNativeBuild
+/build/*
+/captures/*
+/.idea/workspace.xml
+/.idea/libraries
+
+
+# Local configuration file (sdk path, etc)
+/local.properties
+
+
+# Windows thumbnail db
+Thumbs.db
+
+# OSX files
+.DS_Store

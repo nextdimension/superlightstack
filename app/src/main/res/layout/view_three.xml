@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sls.superlight.slates.viewthree.ViewThree xmlns:android="http://schemas.android.com/apk/res/android"
+                                               android:orientation="vertical"
+                                               android:layout_width="match_parent"
+                                               android:layout_height="match_parent"
+                                               android:id="@+id/root">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This is View Three!"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="65dp"/>
+
+    <Button
+        android:text="Show message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/show_message_button"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"/>
+
+</com.sls.superlight.slates.viewthree.ViewThree>
