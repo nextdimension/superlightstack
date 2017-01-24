@@ -94,4 +94,10 @@ public class ViewTwo extends BaseView {
         bundle.putString("VIEW_TWO", arg.getText().toString());
         return bundle;
     }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        compositeSubscription.clear();
+        super.onDetachedFromWindow();
+    }
 }

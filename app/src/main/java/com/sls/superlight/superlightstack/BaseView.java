@@ -4,9 +4,9 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.AttributeSet;
-import android.widget.RelativeLayout;
+import android.widget.FrameLayout;
 
-public class BaseView extends RelativeLayout {
+public class BaseView extends FrameLayout {
 
     public BaseView(Context context) {
         super(context);

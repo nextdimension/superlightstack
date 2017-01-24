@@ -64,4 +64,10 @@ public class ViewThree extends BaseView {
         super.onFinishInflate();
     }
 
+    @Override
+    protected void onDetachedFromWindow() {
+        compositeSubscription.clear();
+        super.onDetachedFromWindow();
+    }
+
 }

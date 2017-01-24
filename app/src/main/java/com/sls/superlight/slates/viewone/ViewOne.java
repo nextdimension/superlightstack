@@ -76,4 +76,10 @@ public class ViewOne extends BaseView {
         bundle.putString("VIEW_ONE", arg.getText().toString());
         return bundle;
     }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        compositeSubscription.clear();
+        super.onDetachedFromWindow();
+    }
 }
