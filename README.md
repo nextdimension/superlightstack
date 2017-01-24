@@ -40,17 +40,17 @@ It is a lightweight library which helps to create a view stack to replace fragme
     }
 ```
 
--### 5. When you create your own view Extend from BaseView
- -
- -```java
- -public class ViewOne extends BaseView 
- -```
- -
- -### 6. Call goTo() to change views, use an animation type and pass any bundle data
- -
- -```java
- -((MainActivity)context).transitioner.goTo(layoutResID, id, getData(), AnimationHandler.TransitionTypes.CROSSFADE, this);
- -```
+### 5. When you create your own view Extend from BaseView
+ 
+```java
+ public class ViewOne extends BaseView 
+```
+
+### 6. Call goTo() to change views, use an animation type and pass any bundle data
+ 
+```java
+ ((MainActivity)context).transitioner.goTo(layoutResID, id, getData(), AnimationHandler.TransitionTypes.CROSSFADE, this);
+```
 
 ## Note
 
