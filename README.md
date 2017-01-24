@@ -1,6 +1,8 @@
 # superlightstack
 It is a lightweight library which helps to create a view stack to replace fragments.
+
 -Provides persistent data between views and device rotations.
+
 -Animated transitions between views.
 
 **The library is 100% reflection-free.**
