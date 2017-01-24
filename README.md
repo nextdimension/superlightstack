@@ -15,6 +15,7 @@ It is a lightweight library which helps to create a view stack to replace fragme
                                           android:orientation="vertical"
                                           android:layout_width="match_parent"
                                           android:layout_height="match_parent">
+ //Add your required layout type here                        
 </com.sls.superlight.slates.viewone.ViewOne>
 
 ```
@@ -33,6 +34,18 @@ It is a lightweight library which helps to create a view stack to replace fragme
         Bundle state = transitioner.saveState(bundle);
         super.onSaveInstanceState(state);
     }
+```
+
+### 5. When you create your own view Extend from BaseView
+
+```java
+public class ViewOne extends BaseView 
+```
+
+### 6. Call goTo() to change views, use an animation type and pass any bundle data
+
+```java
+((MainActivity)context).transitioner.goTo(layoutResID, id, getData(), AnimationHandler.TransitionTypes.CROSSFADE, this);
 ```
 
 ## Note
