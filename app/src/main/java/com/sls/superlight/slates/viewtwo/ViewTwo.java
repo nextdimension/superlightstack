@@ -73,7 +73,7 @@ public class ViewTwo extends BaseView {
     }
 
     private void switchView(@LayoutRes int layoutResID, int id) {
-        ((MainActivity)context).transitioner.goTo(layoutResID, id, getData(), AnimationHandler.TransitionTypes.CROSSFADE, this);
+        ((MainActivity)context).transitioner.goTo(layoutResID, id, getData(), AnimationHandler.TransitionTypes.CROSSFADE);
     }
 
     private void showMessage(String message) {

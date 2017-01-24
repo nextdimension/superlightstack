@@ -60,7 +60,7 @@ public class ViewOne extends BaseView {
     }
 
     public void switchView(@LayoutRes int layoutResID, int id) {
-        ((MainActivity)context).transitioner.goTo(layoutResID, id, getData(), AnimationHandler.TransitionTypes.CROSSFADE, this);
+        ((MainActivity)context).transitioner.goTo(layoutResID, id, getData(), AnimationHandler.TransitionTypes.CROSSFADE);
     }
 
     @Override

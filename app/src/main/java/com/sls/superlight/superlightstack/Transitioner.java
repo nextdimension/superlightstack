@@ -12,7 +12,6 @@ public class Transitioner {
 
     private Context context;
     private ViewGroup root;
-    //private ArrayDeque<Slate> backStack = new ArrayDeque<>();
     private ArrayList<Slate> backStack = new ArrayList<>();
     private int baseLayoutID;
     private int baseId;
@@ -24,9 +23,9 @@ public class Transitioner {
         this.baseId = baseId;
     }
 
-    public void goTo(@LayoutRes int layoutResID, int id, Bundle bundle, AnimationHandler.TransitionTypes type, View view) {
+    public void goTo(@LayoutRes int layoutResID, int id, Bundle bundle, AnimationHandler.TransitionTypes type) {
         Slate slate = new Slate(layoutResID, bundle, id);
-        this.transitionForward(slate, type, view);
+        this.transitionForward(slate, type);
     }
     public void goBack(AnimationHandler.TransitionTypes type) {
         transitionBackward(type);
@@ -35,7 +34,7 @@ public class Transitioner {
         transitionReplace(type);
     }
 
-    private void transitionForward(Slate slate, AnimationHandler.TransitionTypes type, View view) {
+    private void transitionForward(Slate slate, AnimationHandler.TransitionTypes type) {
 
         if (type == AnimationHandler.TransitionTypes.NONE) {
             backStack.add(slate);
@@ -45,7 +44,7 @@ public class Transitioner {
             root.addView(nView);
         } else {
             AnimationHandler animationHandler = new AnimationHandler();
-            BaseView from = (BaseView) view;
+            BaseView from = (BaseView) root.findViewById(backStack.get(backStack.size() - 1).getId());
             backStack.add(slate);
             BaseView to = (BaseView) LayoutInflater.from(this.context).inflate(backStack.get(backStack.size() - 1).getLayoutID(), root, false);
             to.setBundle(backStack.get(backStack.size() - 1).getBundle());
@@ -97,7 +96,7 @@ public class Transitioner {
            backStack = bundle.getParcelableArrayList("TRANSITIONER");
             replace(AnimationHandler.TransitionTypes.NONE);
         } else {
-            goTo(baseLayoutID, baseId, null, AnimationHandler.TransitionTypes.NONE, null);
+            goTo(baseLayoutID, baseId, null, AnimationHandler.TransitionTypes.NONE);
         }
 
     }
