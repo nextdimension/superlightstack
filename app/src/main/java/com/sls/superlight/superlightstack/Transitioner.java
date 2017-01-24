@@ -89,23 +89,12 @@ public class Transitioner {
         return backStack.size();
     }
     public Bundle saveState(Bundle bundle) {
-            ArrayList<Slate> arrayList = new ArrayList<>();
-            Iterator<Slate> iter = backStack.iterator();
-            while (iter.hasNext()) {
-                arrayList.add(iter.next());
-            }
-            bundle.putParcelableArrayList("TRANSITIONER", arrayList);
+        bundle.putParcelableArrayList("TRANSITIONER", backStack);
         return bundle;
     }
     public void setup(Bundle bundle) {
         if(bundle != null) {
-            ArrayList<Slate> arrayList = bundle.getParcelableArrayList("TRANSITIONER");
-            Iterator<Slate> iter = arrayList != null ? arrayList.iterator() : null;
-            backStack.clear();
-            while (iter.hasNext()) {
-
-                backStack.add(iter.next());
-            }
+           backStack = bundle.getParcelableArrayList("TRANSITIONER");
             replace(AnimationHandler.TransitionTypes.NONE);
         } else {
             goTo(baseLayoutID, baseId, null, AnimationHandler.TransitionTypes.NONE, null);
