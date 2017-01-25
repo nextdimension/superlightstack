@@ -12,25 +12,24 @@ It is a lightweight library which helps to create a view stack to replace fragme
 
 ## Example
 
-### 1. Create a XML layout and specifiy the view class you wish to use.
+### 1. Create an XML layout and specifiy the view class you wish to use.
 
 ```XML
-<com.sls.superlight.slates.viewone.ViewOne xmlns:android="http://schemas.android.com/apk/res/android"
-                                          android:orientation="vertical"
-                                          android:layout_width="match_parent"
-                                          android:layout_height="match_parent">
+<com.mypackage.ViewOne xmlns:android="http://schemas.android.com/apk/res/android">
+
 //Add your required layout type here  
-</com.sls.superlight.slates.viewone.ViewOne>
+
+</com.mypackage.ViewOne>
 
 ```
-### 3. Create a new instance of transitioner and provide the base view and view container and pass the bundle;
+### 3. Create a new instance of transitioner and provide the base view,view container and bundle;
 
 ```java
- public Transitioner transitioner = new Transitioner(this, viewContainer, R.layout.view_one, R.id.ViewOne);
-        transitioner.setup(bundle);
+Transitioner transitioner = new Transitioner(context, viewContainer, R.layout.view_one, R.id.ViewOne);
+transitioner.setup(bundle);
 ```
 
-### 4. Pass the bundle to save the transitioner state
+### 4. Pass the bundle to save and restore the transitioner state when the activity is destroyed
 
 ```java
 @Override
@@ -46,13 +45,13 @@ It is a lightweight library which helps to create a view stack to replace fragme
  public class ViewOne extends BaseView 
 ```
 
-### 6. Call goTo() to change views, use an animation type and pass any bundle data
+### 6. Call goTo() to change views, use an animation type and optional bundle.
  
 ```java
 transitioner.goTo(layoutResID,viewId,bundle,AnimationHandler);
 ```
 
-### 7. Make sure to create layout file with view ids
+### 7. Create a file to store view ids
  
 ```XML
  <resources>
@@ -62,7 +61,7 @@ transitioner.goTo(layoutResID,viewId,bundle,AnimationHandler);
 </resources>
 ```
 
-### 8. Make sure to set the view id in the View
+### 8. Set the view id in the View
  
 ```java
  @Override
