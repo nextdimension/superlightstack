@@ -71,7 +71,19 @@ It is a lightweight library which helps to create a view stack to replace fragme
         super.onFinishInflate();
     }
 ```
+## Project - build.gradle
+```java
+	repositories {
+ 
+        maven { url 'https://dl.bintray.com/nextdimension/maven' }
+    }
+}
+```
 
+## App - build.gradle
+```java
+compile 'superorg:superlightstack:0.0.1'
+```
 
 ## Note
 
