@@ -3,8 +3,9 @@ package com.sls.superlight;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.FrameLayout;
+
 import com.sls.superlight.superlightstack.AnimationHandler;
-import com.sls.superlight.superlightstack.Transitioner;;
+import com.sls.superlight.superlightstack.Transitioner;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

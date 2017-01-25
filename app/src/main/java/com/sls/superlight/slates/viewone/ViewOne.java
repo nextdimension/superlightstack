@@ -12,6 +12,7 @@ import com.sls.superlight.R;
 import com.sls.superlight.superlightstack.AnimationHandler;
 import com.jakewharton.rxbinding.view.RxView;
 import com.sls.superlight.superlightstack.BaseView;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import rx.Observable;
