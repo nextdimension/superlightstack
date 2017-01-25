@@ -12,7 +12,7 @@ It is a lightweight library which helps to create a view stack to replace fragme
 
 ## Example
 
-### 1. Create an XML layout and specifiy the view class you wish to use.
+### 1. Create an XML layout file and specifiy the view class you wish to use.
 
 ```XML
 <com.mypackage.ViewOne xmlns:android="http://schemas.android.com/apk/res/android">
@@ -22,14 +22,14 @@ It is a lightweight library which helps to create a view stack to replace fragme
 </com.mypackage.ViewOne>
 
 ```
-### 3. Create a new instance of transitioner and provide the base view,view container and bundle;
+### 3. Create a new instance of transitioner and provide the base view, view container and bundle.
 
 ```java
 Transitioner transitioner = new Transitioner(context, viewContainer, R.layout.view_one, R.id.ViewOne);
 transitioner.setup(bundle);
 ```
 
-### 4. Pass the bundle to save and restore the transitioner state when the activity is destroyed
+### 4. Save and restore the transitioner state when the activity is destroyed.
 
 ```java
 @Override
@@ -39,7 +39,7 @@ transitioner.setup(bundle);
     }
 ```
 
-### 5. When you create your own view Extend from BaseView
+### 5. Extend from BaseView.
  
 ```java
  public class ViewOne extends BaseView 
@@ -61,7 +61,7 @@ transitioner.goTo(layoutResID,viewId,bundle,AnimationHandler);
 </resources>
 ```
 
-### 8. Set the view id in the View
+### 8. Set the id in the View.
  
 ```java
  @Override
