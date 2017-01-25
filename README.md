@@ -49,7 +49,7 @@ It is a lightweight library which helps to create a view stack to replace fragme
 ### 6. Call goTo() to change views, use an animation type and pass any bundle data
  
 ```java
- ((MainActivity)context).transitioner.goTo(layoutResID, id, getData(), AnimationHandler.TransitionTypes.CROSSFADE, this);
+transitioner.goTo(layoutResID,viewId,bundle,AnimationHandler);
 ```
 
 ### 7. Make sure to create layout file with view ids
