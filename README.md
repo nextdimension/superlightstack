@@ -82,7 +82,7 @@ It is a lightweight library which helps to create a view stack to replace fragme
 
 ## App - build.gradle
 ```java
-compile 'superorg:superlightstack:0.0.1'
+ compile 'com.github.nextdimension:superorg:superlightstack:0.0.1'
 ```
 
 ## Note
