@@ -52,7 +52,7 @@ It is a lightweight library which helps to create a view stack to replace fragme
  ((MainActivity)context).transitioner.goTo(layoutResID, id, getData(), AnimationHandler.TransitionTypes.CROSSFADE, this);
 ```
 
-### 7. Make sure create layout file with view ids
+### 7. Make sure to create layout file with view ids
  
 ```XML
  <resources>
