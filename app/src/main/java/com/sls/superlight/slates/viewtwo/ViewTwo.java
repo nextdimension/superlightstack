@@ -96,6 +96,14 @@ public class ViewTwo extends BaseView {
     }
 
     @Override
+    protected void onAttachedToWindow() {
+        if(super.getBundle() != null) {
+            arg.setText(super.getBundle().getString("VIEW_TWO"));
+        }
+        super.onAttachedToWindow();
+    }
+
+    @Override
     protected void onDetachedFromWindow() {
         compositeSubscription.clear();
         super.onDetachedFromWindow();

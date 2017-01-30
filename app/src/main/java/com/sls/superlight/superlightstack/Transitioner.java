@@ -24,6 +24,7 @@ public class Transitioner {
 
     public void goTo(int layoutResID, int id, Bundle bundle, AnimationHandler.TransitionTypes type) {
         Slate slate = new Slate(layoutResID, bundle, id);
+        saveCurrentState(bundle);
         this.transitionForward(slate, type);
     }
     public void goBack(AnimationHandler.TransitionTypes type) {
@@ -86,6 +87,7 @@ public class Transitioner {
     public Integer getSize() {
         return backStack.size();
     }
+
     public Bundle saveState(Bundle bundle) {
         bundle.putParcelableArrayList("TRANSITIONER", backStack);
         return bundle;
@@ -98,6 +100,12 @@ public class Transitioner {
             goTo(baseLayoutID, baseId, null, AnimationHandler.TransitionTypes.NONE);
         }
 
+    }
+
+    private void saveCurrentState(Bundle bundle) {
+        if(backStack.size() >= 1) {
+            backStack.get(backStack.size() - 1).setBundle(bundle);
+        }
     }
 
 }

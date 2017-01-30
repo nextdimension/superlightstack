@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         if(transitioner.getSize() > 1) {
             transitioner.goBack(AnimationHandler.TransitionTypes.CROSSFADE);
+        } else {
+            super.onBackPressed();
         }
     }
 

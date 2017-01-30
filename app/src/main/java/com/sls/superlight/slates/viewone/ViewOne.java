@@ -69,6 +69,7 @@ public class ViewOne extends BaseView {
         ButterKnife.bind(this);
         compositeSubscription.add(subscribeGoToButton());
         this.setId(R.id.ViewOne);
+
         super.onFinishInflate();
     }
 
@@ -79,8 +80,17 @@ public class ViewOne extends BaseView {
     }
 
     @Override
+    protected void onAttachedToWindow() {
+        if(super.getBundle() != null) {
+            arg.setText(super.getBundle().getString("VIEW_ONE"));
+        }
+        super.onAttachedToWindow();
+    }
+
+    @Override
     protected void onDetachedFromWindow() {
         compositeSubscription.clear();
         super.onDetachedFromWindow();
     }
+
 }
