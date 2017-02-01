@@ -5,6 +5,10 @@ It is a lightweight library which helps to create a view stack to replace fragme
 
 -Animated transitions between views.
 
+-View State hierarchy persistence
+
+-Activity callbacks
+
 **The library is 100% reflection-free.**
 
 ## Usage
@@ -80,7 +84,7 @@ transitioner.goTo(layoutResID,viewId,bundle,AnimationHandler);
 
 ## App - build.gradle
 ```java
- compile 'com.github.nextdimension:superorg:superlightstack:0.0.1'
+ compile 'com.github.nextdimension:superorg:superlightstack:0.0.2'
 ```
 
 ## Note
