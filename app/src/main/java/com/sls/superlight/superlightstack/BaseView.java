@@ -25,16 +25,6 @@ public class BaseView extends FrameLayout {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 
-    public String getArg() {
-        return arg;
-    }
-
-    public void setArg(String arg) {
-        this.arg = arg;
-    }
-
-    private String arg;
-
     public Bundle getBundle() {
         return bundle;
     }

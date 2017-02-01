@@ -6,11 +6,9 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.provider.MediaStore;
 import android.support.annotation.LayoutRes;
 import android.util.AttributeSet;
-import android.util.SparseArray;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -45,8 +43,6 @@ public class ViewOne extends BaseView implements Listener {
    ImageView imageView;
 
     private int PICK_IMAGE_REQUEST = 1;
-
-    SparseArray<Parcelable> container;
 
     public ViewOne(Context context) {
         super(context);
@@ -135,13 +131,10 @@ public class ViewOne extends BaseView implements Listener {
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
 
             try {
-                Uri uri = null;
-                if (data != null) {
-                    uri = data.getData();
+                   Uri uri = data.getData();
                     Bitmap bitmap = MediaStore.Images.Media.getBitmap(context.getContentResolver(), uri);
                     this.imageView.setImageBitmap(bitmap);
 
-                }
             } catch (IOException e) {
                 e.printStackTrace();
             }

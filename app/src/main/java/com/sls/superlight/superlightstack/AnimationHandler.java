@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 public class AnimationHandler {
 
-    public void animate(TransitionTypes type, final View from, final View to, final ViewGroup container, int duration){
+    void animate(TransitionTypes type, final View from, final View to, final ViewGroup container, int duration){
 
         switch (type) {
             case CROSSFADE:
@@ -19,7 +19,7 @@ public class AnimationHandler {
         }
     }
 
-    private static final void doCrossFade(final View from, final View to, final ViewGroup container, int duration) {
+    private static void doCrossFade(final View from, final View to, final ViewGroup container, int duration) {
         if(from != null) {
             from.animate()
             .alpha(0f)
