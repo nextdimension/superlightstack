@@ -75,7 +75,7 @@ transitioner.goTo(layoutResID,viewId,bundle,AnimationHandler);
 
 ## App - build.gradle
 ```java
- compile 'com.github.nextdimension:superlightstack:0.0.1'
+ compile 'com.github.nextdimension:superlightstack:0.0.2'
 ```
 
 ## Note
