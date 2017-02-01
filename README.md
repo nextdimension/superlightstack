@@ -73,18 +73,9 @@ transitioner.goTo(layoutResID,viewId,bundle,AnimationHandler);
     }
 ```
 
-## Project - build.gradle
-```java
-	repositories {
- 
-        maven { url 'https://dl.bintray.com/nextdimension/maven' }
-    }
-}
-```
-
 ## App - build.gradle
 ```java
- compile 'com.github.nextdimension:superorg:superlightstack:0.0.2'
+ compile 'com.github.nextdimension:superlightstack:0.0.1'
 ```
 
 ## Note
