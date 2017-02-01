@@ -1,54 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.sls.superlight.slates.viewone.ViewOne xmlns:android="http://schemas.android.com/apk/res/android"
+                                           xmlns:app="http://schemas.android.com/apk/res-auto"
                                            android:orientation="vertical"
                                            android:layout_width="match_parent"
                                            android:layout_height="match_parent"
                                            android:id="@+id/root">
+    <android.support.design.widget.CoordinatorLayout xmlns:tools="http://schemas.android.com/tools"
+                                                     xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                     android:id="@+id/main_content"
+                                                     android:layout_width="match_parent"
+                                                     android:layout_height="match_parent"
+                                                     tools:context="com.anyhu.io.application.SingleActivity">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="This is View One!"
-        android:id="@+id/textView"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/arg_text"
+            android:hint="Data to persist"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="31dp"
+            android:layout_marginStart="31dp"
+            android:layout_marginBottom="126dp"/>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/arg_text"
-        android:hint="Data to persist"
-        android:textSize="12sp"
-        android:textAlignment="center"
-        android:layout_marginTop="35dp"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"/>
+        <Switch
+            android:text="Persistent Switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/persistent_switch"
+            android:layout_alignBaseline="@+id/arg_text"
+            android:layout_alignBottom="@+id/arg_text"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
 
-    <Button
+        <Button
         android:text="GOTO VIEW TWO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/go_to_button"
-        android:layout_below="@+id/arg_text"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="75dp"/>
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"/>
 
-        <Switch
-            android:text="Switch"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/go_to_button"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="27dp"
-            android:id="@+id/switch1"/>
+            android:text="This is View One!"
+            android:id="@+id/textView"
+            android:layout_above="@+id/go_to_button"
+            android:layout_alignRight="@+id/image_test"
+            android:layout_alignEnd="@+id/image_test"/>
 
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_texture_black_24dp"
+            android:id="@+id/image_test"
+            android:layout_marginBottom="28dp"
+            android:layout_alignBottom="@+id/textView"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:text="Click on the image to launch an intent and recieve a callback."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/instructions"
+            android:layout_marginBottom="53dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:padding="8dp"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:text="The switch state will automatically be saved."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="29dp"
+            android:id="@+id/instructions_two"
+            android:textAlignment="center"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"/>
 
     </RelativeLayout>
-
+    </android.support.design.widget.CoordinatorLayout>
 </com.sls.superlight.slates.viewone.ViewOne>

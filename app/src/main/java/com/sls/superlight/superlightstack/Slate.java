@@ -10,17 +10,16 @@ public class Slate implements Parcelable {
     private int layoutID;
     private Bundle bundle;
     private int id;
-    SparseArray<Parcelable> container;
+    private SparseArray<Parcelable> viewHierarchyState = new SparseArray<>();
 
     public Slate(int layoutID) {
         this.layoutID = layoutID;
     }
 
-    public Slate(int layoutID, Bundle bundle, int id, SparseArray<Parcelable> container) {
+    public Slate(int layoutID, Bundle bundle, int id) {
         this.layoutID = layoutID;
         this.bundle = bundle;
         this.id = id;
-        this.container = container;
     }
     public Bundle getBundle() {
         return bundle;
@@ -41,10 +40,10 @@ public class Slate implements Parcelable {
         this.id = id;
     }
     public SparseArray<Parcelable> getContainer() {
-        return container;
+        return viewHierarchyState;
     }
-    public void setContainer(SparseArray<Parcelable> container) {
-        this.container = container;
+    public void setContainer(SparseArray<Parcelable> viewHierarchyState) {
+        this.viewHierarchyState = viewHierarchyState;
     }
 
     @Override
@@ -57,14 +56,14 @@ public class Slate implements Parcelable {
         dest.writeInt(this.layoutID);
         dest.writeBundle(this.bundle);
         dest.writeInt(this.id);
-        dest.writeSparseArray((SparseArray) this.container);
+        dest.writeSparseArray((SparseArray) this.viewHierarchyState);
     }
 
     protected Slate(Parcel in) {
         this.layoutID = in.readInt();
         this.bundle = in.readBundle();
         this.id = in.readInt();
-        this.container = in.readSparseArray(Parcelable.class.getClassLoader());
+        this.viewHierarchyState = in.readSparseArray(Parcelable.class.getClassLoader());
     }
 
     public static final Creator<Slate> CREATOR = new Creator<Slate>() {

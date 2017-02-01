@@ -7,10 +7,8 @@ import android.widget.FrameLayout;
 import com.sls.superlight.superlightstack.AnimationHandler;
 import com.sls.superlight.slates.Listener;
 import com.sls.superlight.superlightstack.Transitioner;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -29,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(bundle);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
         //Create a new instance of Transitioner and provide the base view and view container;
         transitioner = new Transitioner(this, viewContainer, R.layout.view_one, R.id.ViewOne);
         transitioner.setup(bundle);
