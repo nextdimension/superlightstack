@@ -3,7 +3,10 @@ package com.sls.superlight.superlightstack;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.util.SparseArray;
 import android.widget.FrameLayout;
 
 public class BaseView extends FrameLayout {
@@ -44,10 +47,37 @@ public class BaseView extends FrameLayout {
     }
 
     private Bundle bundle;
+    private SparseArray<Parcelable> container;
 
 
+    @Override
+    protected Parcelable onSaveInstanceState() {
+        Log.d("Base", "onSaveInstanceState");
+        return super.onSaveInstanceState();
+    }
 
+    @Override
+    public void saveHierarchyState(SparseArray<Parcelable> container) {
+        Log.d("base", "saveHierarchyState");
+        super.saveHierarchyState(container);
+    }
 
+    @Override
+    protected void dispatchSaveInstanceState(SparseArray<Parcelable> container) {
+        Log.d("Base", "dispatchSaveInstanceState");
+        super.dispatchSaveInstanceState(container);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Parcelable state) {
+        Log.d("Base", "onRestoreInstanceState");
+        super.onRestoreInstanceState(state);
+    }
+
+    public void setid(int id) {
+        setId(id);
+        setSaveEnabled(true);
+    }
 
 
 }

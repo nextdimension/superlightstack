@@ -20,7 +20,6 @@ It is a lightweight library which helps to create a view stack to replace fragme
 //Add your required layout type here  
 
 </com.mypackage.ViewOne>
-
 ```
 ### 3. Create a new instance of transitioner and provide the base view, view container and bundle.
 
@@ -28,7 +27,6 @@ It is a lightweight library which helps to create a view stack to replace fragme
 Transitioner transitioner = new Transitioner(context, viewContainer, R.layout.view_one, R.id.ViewOne);
 transitioner.setup(bundle);
 ```
-
 ### 4. Save and restore the transitioner state when the activity is destroyed.
 
 ```java
@@ -46,7 +44,7 @@ transitioner.setup(bundle);
 ```
 
 ### 6. Call goTo() to change views, use an animation type and optional bundle.
- 
+
 ```java
 transitioner.goTo(layoutResID,viewId,bundle,AnimationHandler);
 ```
@@ -70,6 +68,7 @@ transitioner.goTo(layoutResID,viewId,bundle,AnimationHandler);
         super.onFinishInflate();
     }
 ```
+
 ## Project - build.gradle
 ```java
 	repositories {

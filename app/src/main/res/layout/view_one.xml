@@ -2,7 +2,8 @@
 <com.sls.superlight.slates.viewone.ViewOne xmlns:android="http://schemas.android.com/apk/res/android"
                                            android:orientation="vertical"
                                            android:layout_width="match_parent"
-                                           android:layout_height="match_parent">
+                                           android:layout_height="match_parent"
+                                           android:id="@+id/root">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -37,6 +38,17 @@
         android:layout_below="@+id/arg_text"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="75dp"/>
+
+        <Switch
+            android:text="Switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/go_to_button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="27dp"
+            android:id="@+id/switch1"/>
+
+
     </RelativeLayout>
 
 </com.sls.superlight.slates.viewone.ViewOne>

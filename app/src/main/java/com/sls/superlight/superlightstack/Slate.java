@@ -3,21 +3,24 @@ package com.sls.superlight.superlightstack;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.SparseArray;
 
 public class Slate implements Parcelable {
 
     private int layoutID;
     private Bundle bundle;
     private int id;
+    SparseArray<Parcelable> container;
 
     public Slate(int layoutID) {
         this.layoutID = layoutID;
     }
 
-    public Slate(int layoutID, Bundle bundle, int id) {
+    public Slate(int layoutID, Bundle bundle, int id, SparseArray<Parcelable> container) {
         this.layoutID = layoutID;
         this.bundle = bundle;
         this.id = id;
+        this.container = container;
     }
     public Bundle getBundle() {
         return bundle;
@@ -37,6 +40,13 @@ public class Slate implements Parcelable {
     public void setId(int id) {
         this.id = id;
     }
+    public SparseArray<Parcelable> getContainer() {
+        return container;
+    }
+    public void setContainer(SparseArray<Parcelable> container) {
+        this.container = container;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -47,12 +57,16 @@ public class Slate implements Parcelable {
         dest.writeInt(this.layoutID);
         dest.writeBundle(this.bundle);
         dest.writeInt(this.id);
+        dest.writeSparseArray((SparseArray) this.container);
     }
+
     protected Slate(Parcel in) {
         this.layoutID = in.readInt();
         this.bundle = in.readBundle();
         this.id = in.readInt();
+        this.container = in.readSparseArray(Parcelable.class.getClassLoader());
     }
+
     public static final Creator<Slate> CREATOR = new Creator<Slate>() {
         @Override
         public Slate createFromParcel(Parcel source) {

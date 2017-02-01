@@ -3,9 +3,11 @@ package com.sls.superlight.slates.viewtwo;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.LayoutRes;
 import android.support.design.widget.Snackbar;
 import android.util.AttributeSet;
+import android.util.SparseArray;
 import android.widget.Button;
 import android.widget.EditText;
 import com.sls.superlight.MainActivity;
@@ -32,6 +34,8 @@ public class ViewTwo extends BaseView {
 
     @BindView(R.id.arg_text)
     EditText arg;
+
+    SparseArray<Parcelable> container;
 
 
     public ViewTwo(Context context) {
@@ -73,7 +77,7 @@ public class ViewTwo extends BaseView {
     }
 
     private void switchView(@LayoutRes int layoutResID, int id) {
-        ((MainActivity)context).transitioner.goTo(layoutResID, id, getData(), AnimationHandler.TransitionTypes.CROSSFADE);
+        ((MainActivity)context).transitioner.goTo(layoutResID, id, getData(), AnimationHandler.TransitionTypes.CROSSFADE, container);
     }
 
     private void showMessage(String message) {

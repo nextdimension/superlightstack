@@ -2,8 +2,10 @@ package com.sls.superlight.slates.viewthree;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.os.Parcelable;
 import android.support.design.widget.Snackbar;
 import android.util.AttributeSet;
+import android.util.SparseArray;
 import android.widget.Button;
 import com.sls.superlight.R;
 import com.jakewharton.rxbinding.view.RxView;
@@ -20,7 +22,9 @@ public class ViewThree extends BaseView {
     private Context context;
 
     @BindView(R.id.show_message_button)
-    Button showMessageButton;;
+    Button showMessageButton;
+
+    SparseArray<Parcelable> container;
 
     public ViewThree(Context context) {
         super(context);

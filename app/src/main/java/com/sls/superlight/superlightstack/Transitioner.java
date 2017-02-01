@@ -1,11 +1,16 @@
 package com.sls.superlight.superlightstack;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+
+import static android.R.attr.data;
 
 public class Transitioner {
 
@@ -22,9 +27,9 @@ public class Transitioner {
         this.baseId = baseId;
     }
 
-    public void goTo(int layoutResID, int id, Bundle bundle, AnimationHandler.TransitionTypes type) {
-        Slate slate = new Slate(layoutResID, bundle, id);
-        saveCurrentState(bundle);
+    public void goTo(int layoutResID, int id, Bundle bundle, AnimationHandler.TransitionTypes type, SparseArray<Parcelable> container) {
+        Slate slate = new Slate(layoutResID, bundle, id, container);
+        saveCurrentState(bundle, container);
         this.transitionForward(slate, type);
     }
     public void goBack(AnimationHandler.TransitionTypes type) {
@@ -97,14 +102,15 @@ public class Transitioner {
            backStack = bundle.getParcelableArrayList("TRANSITIONER");
             replace(AnimationHandler.TransitionTypes.NONE);
         } else {
-            goTo(baseLayoutID, baseId, null, AnimationHandler.TransitionTypes.NONE);
+            goTo(baseLayoutID, baseId, null, AnimationHandler.TransitionTypes.NONE, null);
         }
 
     }
 
-    private void saveCurrentState(Bundle bundle) {
+    private void saveCurrentState(Bundle bundle, SparseArray<Parcelable> container) {
         if(backStack.size() >= 1) {
             backStack.get(backStack.size() - 1).setBundle(bundle);
+            backStack.get(backStack.size() - 1).setContainer(container);
         }
     }
 
